@@ -33,7 +33,11 @@ int main( int argc, char **argv ) {
     }
 
     // == init renderer ============================================================================
-    SDL_Renderer *renderer = SDL_CreateRenderer( window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC );
+    SDL_Renderer *renderer = SDL_CreateRenderer(
+        window,
+        -1,
+        SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC
+    );
 
     if ( renderer == NULL ) {
         const char *error = SDL_GetError();
