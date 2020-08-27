@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rootElement>
+	<loopmark row="32" />
+<tracks rows="10000" startRow="0" endRow="10000" rowsPerBeat="8"
+beatsPerMin="140" musicFilename="C">
+	<track name="internet#w" folded="0" muteKeyCount="0"
+color="ffb27474">
+		<key row="0" value="1.000000" interpolation="1" />
+		<key row="8" value="2.000000" interpolation="1" />
+		<key row="16" value="0.500000" interpolation="1" />
+		<key row="24" value="2.000000" interpolation="1" />
+		<key row="32" value="1.000000" interpolation="0" />
+	</track>
+	<track name="internet#h" folded="0" muteKeyCount="0"
+color="ffb28050">
+		<key row="0" value="1.000000" interpolation="1" />
+		<key row="8" value="0.500000" interpolation="1" />
+		<key row="16" value="1.000000" interpolation="1" />
+		<key row="24" value="0.500000" interpolation="1" />
+		<key row="32" value="1.000000" interpolation="0" />
+	</track>
+</tracks>
+	</rootElement>

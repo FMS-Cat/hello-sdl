@@ -1,10 +1,14 @@
 ﻿cmake_minimum_required( VERSION 3.8 )
 
-add_executable( hello-sdl "hello-sdl.cpp" )
+add_executable( hello-sdl hello-sdl.cpp )
 
-target_link_libraries( hello-sdl SDL2 SDL2main )
+if(WIN32)
+  target_link_libraries( hello-sdl PRIVATE wsock32 ws2_32 )
+endif()
 
-target_include_directories( hello-sdl PRIVATE SDL2 )
+target_link_libraries( hello-sdl PRIVATE SDL2 SDL2main rkt_sync )
+
+target_include_directories( hello-sdl PRIVATE SDL2 rkt_sync )
 
 add_custom_command(
     TARGET
