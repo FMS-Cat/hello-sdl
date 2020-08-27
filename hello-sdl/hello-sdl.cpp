@@ -1,6 +1,8 @@
-﻿#include <stdio.h>
+#include <stdio.h>
 #include <string>
 #include <SDL.h>
+
+#include "cleanup.h"
 
 int main( int argc, char **argv ) {
     // == init video context =======================================================================
@@ -37,7 +39,7 @@ int main( int argc, char **argv ) {
         const char *error = SDL_GetError();
         printf( error );
 
-        SDL_DestroyWindow( window );
+        cleanup( window );
         SDL_Quit();
         return 1;
     }
@@ -52,21 +54,19 @@ int main( int argc, char **argv ) {
         const char* error = SDL_GetError();
         printf( error );
 
-        SDL_DestroyRenderer( renderer );
-        SDL_DestroyWindow( window );
+        cleanup( renderer, window );
         SDL_Quit();
         return 1;
     }
 
     SDL_Texture *texture = SDL_CreateTextureFromSurface( renderer, image );
-    SDL_FreeSurface( image );
+    cleanup( image );
 
     if ( texture == NULL ) {
         const char* error = SDL_GetError();
         printf( error );
 
-        SDL_DestroyRenderer( renderer );
-        SDL_DestroyWindow( window );
+        cleanup( renderer, window );
         SDL_Quit();
         return 1;
     }
@@ -101,9 +101,7 @@ int main( int argc, char **argv ) {
     }
 
     // == quit =====================================================================================
-    SDL_DestroyTexture( texture );
-    SDL_DestroyRenderer( renderer );
-    SDL_DestroyWindow( window );
+    cleanup( texture, renderer, window );
     SDL_Quit();
 
     return 0;
